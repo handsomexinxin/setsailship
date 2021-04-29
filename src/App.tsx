@@ -1,9 +1,35 @@
 import React from 'react';
 import Button, {ButtonType, ButtonSize} from "./components/Button/Button"
+import Menu from './components/Menu/Menu';
+import MenuItem from './components/Menu/MenuItem';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Menu defaultIndex={0} onSelect={(index) => {console.log(index)}}>
+          <MenuItem index={0}>
+            cool link
+          </MenuItem>
+          <MenuItem disabled index={1}>
+            cool link 2
+          </MenuItem>
+          <MenuItem index={2}>
+            cool link 3
+          </MenuItem>
+        </Menu>
+
+        <Menu defaultIndex={0} onSelect={(index) => {console.log(index)}} mode="vertical" >
+          <MenuItem index={0}>
+            cool link
+          </MenuItem>
+          <MenuItem disabled index={1}>
+            cool link 2
+          </MenuItem>
+          <MenuItem index={2}>
+            cool link 3
+          </MenuItem>
+        </Menu>
+
         <Button disabled >我是一个按钮</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large} >我是一个大按钮</Button>
         <Button onClick={(e) => {console.log(e)}} >我是一个按钮</Button>
