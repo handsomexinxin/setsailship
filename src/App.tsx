@@ -1,9 +1,9 @@
 import React from 'react';
+import {createMessage, MessageType} from './components/Message/Message';
 import Button, {ButtonType, ButtonSize} from "./components/Button/Button"
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
-
 function App() {
   return (
     <div className="App">
@@ -48,9 +48,15 @@ function App() {
           </MenuItem>
         </Menu>
 
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Large} onClick={(e) => {createMessage()({content:"successMessage被调用", type:MessageType.Success, duration: 2000})}} >我是message按钮</Button>
+        <Button btnType={ButtonType.Default} onClick={(e) => {createMessage()({content:"errorMessage被调用", type:MessageType.Error, duration: 4000})}} >我是message按钮</Button>
+        <Button btnType={ButtonType.Default} onClick={(e) => {createMessage()({content:"warningMessage被调用", type:MessageType.Warning,duration: 3000})}} >我是message按钮</Button>
+        <Button btnType={ButtonType.Link} onClick={(e) => {createMessage()({content:"infoMessage被调用",key: "123123", type:MessageType.Info, duration: 5000})}} >我是message按钮</Button>
+        <Button btnType={ButtonType.Link} onClick={(e) => {createMessage()({content:"infoMessage被调用",key: "123123", type:MessageType.Error, duration: 1500})}} >我是message按钮我有key</Button>
+
+        {/* <Alert content="asfd"></Alert> */}
         {/* <Button disabled >我是一个按钮</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large} >我是一个大按钮</Button>
-        <Button onClick={(e) => {console.log(e)}} >我是一个按钮</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Small} >我是一个小按钮</Button>
         <Button btnType={ButtonType.Danger}>我是一个按钮</Button>
         <Button btnType={ButtonType.Link} target="_blank" href="https://www.baidu.com">baiduLink</Button>

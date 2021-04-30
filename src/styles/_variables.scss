@@ -286,3 +286,13 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-bar-color:                $white !default;
 $progress-bar-transition:           width .6s ease !default;
+
+// Message
+$message-content-padding: 10px 16px;
+$message-content-font-size: 14px;
+$message-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),0 9px 28px 8px rgba(0, 0, 0, 0.05);
+$message-background: $white;
+$message-success-background: $success;
+$message-error-background: $danger;
+$message-info-background: $info;
+$message-warning-background: $warning;
