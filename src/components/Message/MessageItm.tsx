@@ -41,7 +41,7 @@ const Message: React.FC<messageProps> = (props) => {
 				unmount();
 			}, duration)
 		)
-	}, [unmount]);
+	}, [unmount, duration]);
 	return <div className={classes} >
 		<div className={classNames("message-context")}>{content}</div>
 		<div className={classNames("message-close")} style={{zIndex: 102, cursor: "pointer"}} onClick={() => {unmount()}}>X</div>

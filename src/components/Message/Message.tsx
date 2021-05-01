@@ -15,7 +15,7 @@ export interface createMessageProps {
   key?: string;
   duration?: number,
 }
-export const createMessage = () => {
+const createMessage = () => {
 	return (props: createMessageProps) => {
 		const { key } = props;
 		if (typeof document === "undefined") {
@@ -44,7 +44,6 @@ export const createMessage = () => {
 		}else {
 			if(key) {
 
-				let bool = false
 				let children = wrap.children
 				let leng = children.length
 				for(let i = 0; i <leng; i++){
@@ -70,3 +69,4 @@ export const createMessage = () => {
 	};
 };
 
+export default createMessage()
