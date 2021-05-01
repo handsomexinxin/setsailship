@@ -1,6 +1,8 @@
 import React, {useEffect, useMemo, useState} from "react";
 import { unmountComponentAtNode } from "react-dom"
 import classNames from "classnames";
+import Transition from './../Transition/Transition';
+import Icon from "../Icon/Icon"
 export enum MessageType {
   Success = "success",
   Error = "error",
@@ -20,8 +22,12 @@ type messageProps = MessagePropsBefore & MessageProps
 const Message: React.FC<messageProps> = (props) => {
 	const { rootDom, parentDom, content, duration, type } = props;
 	const [timer, setTimer] = useState<any>(null)
+	const [messageShow, setShow] = useState(false)
 	const classes = classNames("setsail-message-context", {
 		[`message-${type}`]: type
+	})
+	const iconClasses = classNames({
+		[`message-icon-${type}`]: type
 	})
 	const unmount = useMemo(() => {
 		if(timer) {
@@ -29,23 +35,48 @@ const Message: React.FC<messageProps> = (props) => {
 			setTimer(null)
 		}
 		return () => {
-			if (parentDom && rootDom && rootDom.contains(parentDom)) {
+			setShow(false)
+			setTimeout(() => {
+				if (parentDom && rootDom && rootDom.contains(parentDom)) {
 				unmountComponentAtNode(parentDom);
 				rootDom.removeChild(parentDom);
 			}
+			}, 400);
 		};
 	}, [parentDom, rootDom]);
 	useEffect(() => {
+		setShow(true)
 		setTimer(
 			setTimeout(() => {
 				unmount();
 			}, duration)
 		)
 	}, [unmount, duration]);
-	return <div className={classes} >
-		<div className={classNames("message-context")}>{content}</div>
-		<div className={classNames("message-close")} style={{zIndex: 102, cursor: "pointer"}} onClick={() => {unmount()}}>X</div>
-	</div>;
+	return(
+		<Transition
+		in={messageShow}
+		timeout={300}
+		animation="zoom-in-top"
+	>
+		<div className={classes} >
+			{
+				type === 'success'?
+				<Icon className={iconClasses} icon="check-circle" ></Icon>
+				:type === 'error'?
+				<Icon className={iconClasses} icon="times-circle" ></Icon>
+				:type === 'warning'?
+				<Icon className={iconClasses} icon="exclamation-circle" ></Icon>
+				:type === 'info'?
+				<Icon className={iconClasses} icon="exclamation-circle" ></Icon>
+				:null
+			}
+			<div className={classNames("message-context")}>{content}</div>
+			<div className={classNames("message-close")} style={{zIndex: 102, cursor: "pointer"}} onClick={() => {unmount()}}>
+				<Icon icon="times"></Icon>
+			</div>
+		</div>
+	</Transition>
+	);
 }
 Message.defaultProps = {
   type: MessageType.Success,

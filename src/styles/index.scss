@@ -1,6 +1,13 @@
 @import "variables";
 @import "reboot";
 @import "mixin";
+// Button
 @import "../components/Button/style";
+// Menu
 @import "../components/Menu/style";
+// Message
 @import "../components/Message/style";
+// Icon
+@import "../components/Icon/style";
+// 动画
+@import "animation";

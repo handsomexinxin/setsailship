@@ -3,35 +3,45 @@
   flex-direction: column;
   .message-item {
     // margin-top: 25px;
+    justify-content: center;
     padding: 8px;
+    display: flex;
     .setsail-message-context {
       display: inline-block;
       padding: $message-content-padding;
-      // background-color: $message-background;
+      background-color: $message-background;
       min-width: 150px;
       position: relative;
       border-radius: 5px;
       box-shadow: $message-shadow;
       font-size: 14px;
+      display: flex;
+      align-items: center;
+      .message-context {
+        margin-left: 10px;
+        max-width: 500px;
+        margin-right: 5px;
+      }
       .message-close {
         position: absolute;
         top: 5px;
         right: 5px;
         font-size: $message-content-font-size;
+        color: $gray-600;
       }
     }
   }
-  .message-success {
-    background-color: $message-success-background;
+  .message-icon-success {
+    color: $message-success-background;
   }
-  .message-error {
-    // background-color: #1890FF;
-    background-color: $message-error-background;
+  .message-icon-error {
+    // color: #1890FF;
+    color: $message-error-background;
   }
-  .message-info {
-    background-color: $message-info-background;
+  .message-icon-info {
+    color: $message-info-background;
   }
-  .message-warning {
-    background-color: $message-warning-background;
+  .message-icon-warning {
+    color: $message-warning-background;
   }
 }
