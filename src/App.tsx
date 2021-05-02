@@ -1,5 +1,5 @@
 import React from 'react';
-import message, { MessageType} from './components/Message/Message';
+import message from './components/Message/Message';
 import Button from "./components/Button/Button"
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
@@ -7,21 +7,32 @@ import SubMenu from './components/Menu/SubMenu';
 import Icon from "./components/Icon/Icon";
 import { useState } from 'react';
 import Transition from "./components/Transition/Transition"
+import Input from "./components/Input/Inipt"
 
 function App() {
   const [show, setShow] = useState(true)
   return (
     <div className="App">
-        <div>
-          <Icon icon="align-right" theme="primary" size="7x" />
-          <Icon icon="address-card" theme="danger" size="7x"  />
-          <Icon icon="address-card" theme="dark" size="7x"  />
-          <Icon icon="address-card" theme="info" size="7x"  />
-          <Icon icon="address-card" theme="success" size="7x"  />
+      <div style={{ width: "300px", marginTop: "10px" }}>
+        <Input placeholder="placeholder" icon="search" />
+        <Input placeholder="placeholder" size="ls" />
+        <Input placeholder="placeholder" size="sm"/>
+        <Input disabled placeholder="placeholder" />
+        <Input placeholder="placeholder" append="@qq.com" />
+        <Input placeholder="placeholder" prepend="https://" />
+        <Input placeholder="placeholder" prepend="https://" append="@qq.com" />
+        <Input placeholder="placeholder" prepend="https://" append={<Button>Button</Button>} />
+      </div>
+      <div>
+        <Icon icon="align-right" theme="primary" size="7x" />
+        <Icon icon="address-card" theme="danger" size="7x" />
+        <Icon icon="address-card" theme="dark" size="7x" />
+        <Icon icon="address-card" theme="info" size="7x" />
+        <Icon icon="address-card" theme="success" size="7x" />
 
-  </div>
+      </div>
       <header className="App-header">
-        <Menu defaultIndex={"0"} onSelect={(index) => {console.log(index)}}>
+        <Menu defaultIndex={"0"} onSelect={(index) => { console.log(index) }}>
           <MenuItem >
             cool link
           </MenuItem>
@@ -29,11 +40,11 @@ function App() {
             cool link 2
           </MenuItem>
           <SubMenu title="dropdown" >
-          <MenuItem >
-            dropdown 1
+            <MenuItem >
+              dropdown 1
           </MenuItem>
-          <MenuItem >
-            dropdown 2
+            <MenuItem >
+              dropdown 2
           </MenuItem>
           </SubMenu>
           <MenuItem >
@@ -41,7 +52,7 @@ function App() {
           </MenuItem>
         </Menu>
 
-        <Menu defaultIndex={"0"} onSelect={(index) => {console.log(index)}} mode="vertical" defaultOpenSunMenus={["2"]} >
+        <Menu defaultIndex={"0"} onSelect={(index) => { console.log(index) }} mode="vertical" defaultOpenSunMenus={["2"]} >
           <MenuItem >
             cool link
           </MenuItem>
@@ -49,11 +60,11 @@ function App() {
             cool link 2
           </MenuItem>
           <SubMenu title="dropdown" >
-          <MenuItem >
-            dropdown 1
+            <MenuItem >
+              dropdown 1
           </MenuItem>
-          <MenuItem >
-            dropdown 2
+            <MenuItem >
+              dropdown 2
           </MenuItem>
           </SubMenu>
           <MenuItem >
@@ -61,12 +72,12 @@ function App() {
           </MenuItem>
         </Menu>
 
-        <Button btnType="primary" size="lg" onClick={(e) => {message({content:"successMessage被调用", type:MessageType.Success, duration: 2000})}} >我是message按钮</Button>
-        <Button btnType="default" onClick={(e) => {message({content:"errorMessage被调用", type:MessageType.Error, duration: 4000})}} >我是message按钮</Button>
-        <Button btnType="default" onClick={(e) => {message({content:"warningMessage被调用", type:MessageType.Warning,duration: 3000})}} >我是message按钮</Button>
-        <Button btnType="link" onClick={(e) => {message({content:"infoMessage被调用",key: "123123", type:MessageType.Info, duration: 5000})}} >我是message按钮</Button>
-        <Button btnType="link" onClick={(e) => {message({content:"infoMessage被调用",key: "123as123", type:MessageType.Error, duration: 1500})}} >我是message按钮我有key</Button>
-        <Button btnType="link" onClick={(e) => {message({content:"infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用",key: "123as123qwe", type:MessageType.Error, duration: 15000})}} >我是message按钮我有key</Button>
+        <Button btnType="primary" size="lg" onClick={(e) => { message({ content: "successMessage被调用", type: "error", duration: 2000 }) }} >我是message按钮</Button>
+        <Button btnType="default" onClick={(e) => { message({ content: "errorMessage被调用", type: "error", duration: 4000 }) }} >我是message按钮</Button>
+        <Button btnType="default" onClick={(e) => { message({ content: "warningMessage被调用", type: "warning", duration: 3000 }) }} >我是message按钮</Button>
+        <Button btnType="link" onClick={(e) => { message({ content: "infoMessage被调用", key: "123123", type: "info", duration: 5000 }) }} >我是message按钮</Button>
+        <Button btnType="link" onClick={(e) => { message({ content: "infoMessage被调用", key: "123as123", type: "error", duration: 1500 }) }} >我是message按钮我有key</Button>
+        <Button btnType="link" onClick={(e) => { message({ content: "infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用infoMessage被调用", key: "123as123qwe", type: "info", duration: 15000 }) }} >我是message按钮我有key</Button>
 
         {/* <Alert content="asfd"></Alert> */}
         {/* <Button disabled >我是一个按钮</Button>
@@ -82,18 +93,18 @@ function App() {
           animation="zoom-in-left"
         >
           <div>
-          <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
         </p><p>
-          Edit <code>src/App.tsx</code> and save to reload.
+              Edit <code>src/App.tsx</code> and save to reload.
         </p><p>
-          Edit <code>src/App.tsx</code> and save to reload.
+              Edit <code>src/App.tsx</code> and save to reload.
         </p><p>
-          Edit <code>src/App.tsx</code> and save to reload.
+              Edit <code>src/App.tsx</code> and save to reload.
         </p><p>
-          Edit <code>src/App.tsx</code> and save to reload.
+              Edit <code>src/App.tsx</code> and save to reload.
         </p><p>
-          Edit <code>src/App.tsx</code> and save to reload.
+              Edit <code>src/App.tsx</code> and save to reload.
         </p>
           </div>
         </Transition>

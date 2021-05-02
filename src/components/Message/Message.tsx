@@ -2,13 +2,7 @@ import React from "react";
 import reactDom from "react-dom"
 import Message from "./MessageItm";
 let wrap: HTMLElement;
-// export MessageType
-export enum MessageType {
-  Success = "success",
-  Error = "error",
-  Info = "info",
-  Warning = "warning"
-}
+export type MessageType = "success" | "error" | "info" | "warning"
 export interface createMessageProps {
   type?: MessageType;
   content: string;
@@ -69,4 +63,4 @@ const createMessage = () => {
 	};
 };
 
-export default createMessage()
+export default createMessage();

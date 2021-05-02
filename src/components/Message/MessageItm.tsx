@@ -3,12 +3,14 @@ import { unmountComponentAtNode } from "react-dom"
 import classNames from "classnames";
 import Transition from './../Transition/Transition';
 import Icon from "../Icon/Icon"
-export enum MessageType {
-  Success = "success",
-  Error = "error",
-  Info = "info",
-  Warning = "warning"
-}
+// export enum MessageType {
+//   Success = "success",
+//   Error = "error",
+//   Info = "info",
+//   Warning = "warning"
+// }
+export type MessageType = "success" | "error" | "info" | "warning"
+
 export interface MessageProps {
   type?: MessageType;
   content: string;
@@ -79,7 +81,7 @@ const Message: React.FC<messageProps> = (props) => {
 	);
 }
 Message.defaultProps = {
-  type: MessageType.Success,
+  type: "success",
   duration: 1500
 }
 

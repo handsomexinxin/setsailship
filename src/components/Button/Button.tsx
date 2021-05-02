@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {FC,ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode} from 'react'
 import classNames  from "classnames"
 // export enum ButtonSize {
 //   Large = "lg",
@@ -14,17 +14,31 @@ export type ButtonSize = "lg" | "sm";
 export type ButtonType = "primary" | "default" | "danger" | "link";
 
 interface BaseButtonProps {
+  /**设置Button的样式名 */
   className?: string,
+  /**设置Button是否禁用 */
   disabled?: boolean,
+  /**设置Button的大小 */
   size?: ButtonSize,
+  /**设置Button的类型 */
   btnType?: ButtonType,
-  children: React.ReactNode,
+  /**设置Button的子元素  在双标签中写入 */
+  children: ReactNode,
+  /**如果类型为link设置链接地址 */
   href?: string
 }
-type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
-const Button:React.FC<ButtonProps> = (props) => {
+/**
+ * Button 按钮 
+ * ~~~js
+ * // 这样引用
+ * import { Button } from 'setsailship'
+ * ~~~
+ * 支持 HTMLInput 的所有基本属性
+ */
+export const Button:FC<ButtonProps> = (props) => {
   const {
     btnType,
     className,
@@ -56,4 +70,4 @@ Button.defaultProps = {
   btnType: "default"
 }
 
-export default Button
+export default Button;

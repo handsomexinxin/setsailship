@@ -6,11 +6,17 @@ type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectIndex: string) => void;
 
 export interface MenuProps {
+  /**初始化默认选择 */
   defaultIndex?: string,
+  /**样式类名 */
   className?: string,
+  /**horizontal 横向 |  vertical 竖向*/
   mode?: MenuMode,
+  /**css样式*/
   styles?: React.CSSProperties,
+  /** 选择项改变之后的回调函数  包含一个参数  参数为此选择项的index  可自行设置 */
   onSelect?: SelectCallback,
+  /** 此数组为二级导航展开项  可以填入默认项 */
   defaultOpenSunMenus?: string[]
 }
 
@@ -22,7 +28,13 @@ interface IMenuContext {
 }
 
 export const MenuContext = createContext<IMenuContext>({index: "0"})
-
+/**
+ * Menu 导航菜单
+ * ~~~js
+ * // 这样引用
+ * import { Menu } from 'setsailship'
+ * ~~~
+ */
 const Menu: React.FC<MenuProps> = (props) => {
   const { defaultIndex, className, mode, styles, onSelect, children, defaultOpenSunMenus } = props
   const [currentActive, setActive] = useState(defaultIndex)
@@ -49,14 +61,14 @@ const Menu: React.FC<MenuProps> = (props) => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const {displayName} = childElement.type;
-      if( displayName === "menuItem" || displayName === "subMenu") {
+      // if( displayName === "menuItem" || displayName === "subMenu") {
         return React.cloneElement(childElement, {
           index: index.toString()
         })
-      }else {
-        console.error("error: Menu has a child which is not a MenuItem Component");
+      // }else {
+      //   console.error("error: Menu has a child which is not a MenuItem Component");
         
-      }
+      // }
     })
   }
 

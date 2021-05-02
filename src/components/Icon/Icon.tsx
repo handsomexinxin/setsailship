@@ -9,7 +9,14 @@ export type ThemeProps = 'primary' | 'secondary' | 'success' | 'info' | 'warning
 export interface IconProps extends FontAwesomeIconProps {
   theme?: ThemeProps
 }
+/**
+ * icon 图标 封装fortawesome而来 包含Free下 Solid
+ * ~~~js
+ * // 这样引用
+ * import { icon } from 'setsailship'
+ * ~~~
 
+ */
 const Icon:React.FC<IconProps> = (props) => {
   const { theme, className, ...restProps } = props
   const classes = classNames('setsail-icon', className, {
