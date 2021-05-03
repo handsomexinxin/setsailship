@@ -8,11 +8,13 @@ import Icon from "./components/Icon/Icon";
 import { useState } from 'react';
 import Transition from "./components/Transition/Transition"
 import Input from "./components/Input/Inipt"
+import Upload from "./components/Upload/Upload"
 
 function App() {
   const [show, setShow] = useState(true)
   return (
     <div className="App">
+      <Upload action="asdf"></Upload>
       <div style={{ width: "300px", marginTop: "10px" }}>
         <Input placeholder="placeholder" icon="search" />
         <Input placeholder="placeholder" size="ls" />

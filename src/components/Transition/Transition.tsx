@@ -21,7 +21,7 @@ type AnimationName = {
  * ~~~
  * 
  */
-const Transition :React.FC<AnimationName> = (props) => {
+export const Transition :React.FC<AnimationName> = (props) => {
   const { children, classNames, animation, wrapper, ...restProps } = props
 
   return (

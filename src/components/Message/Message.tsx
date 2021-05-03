@@ -62,5 +62,5 @@ const createMessage = () => {
 		);
 	};
 };
-
+export const message = createMessage()
 export default createMessage();

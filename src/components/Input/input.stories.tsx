@@ -3,8 +3,10 @@ import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { Input } from './Inipt'
 const ControlledInput = () => {
-  const [value, setValue] = useState('')
-  return <Input value={value} defaultValue={value} onChange={(e) => {setValue(e.target.value)}}/>
+  const [value, setValue] = useState('aaa')
+  console.log(value);
+  
+  return <Input value={value} onChange={(e) => {setValue(e.target.value)}}/>
 }
 const defaultInput = () => (
   <>
