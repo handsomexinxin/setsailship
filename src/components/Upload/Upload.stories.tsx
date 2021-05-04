@@ -22,7 +22,7 @@ export const UploadComponent = () => {
     <div>
       <h5>上传组件</h5>
       <Upload
-        action="http://jsonplaceholder.typicode.com/posts"
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         // onProgress={() => {console.log("onProgress")}}
         // onSuccess={() => {console.log("onSuccess")}}
         // onError={() => {console.log("onError")}}
