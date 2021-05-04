@@ -75,7 +75,7 @@ export var AutoComplete = function (props) {
             setShowDropdown(false);
         }
         setHighlightIndex(-1);
-    }, [debounceValue]);
+    }, [debounceValue, fetchSuggestions]);
     var highlight = function (index) {
         if (index < 0)
             index = 0;

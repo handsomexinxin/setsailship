@@ -50,13 +50,14 @@ export var SubMenu = function (props) {
         });
         var childrenComponent = React.Children.map(children, function (child, i) {
             var childElement = child;
-            // if (childElement.type.displayName === "menuItem") {
-            return React.cloneElement(childElement, {
-                index: index + "-" + i
-            });
-            // } else {
-            //   console.error("error: Menu has a child which is not a MenuItem Component");
-            // }
+            if (childElement.type.displayName === "menuItem") {
+                return React.cloneElement(childElement, {
+                    index: index + "-" + i
+                });
+            }
+            else {
+                console.error("error: Menu has a child which is not a MenuItem Component");
+            }
         });
         return (
         // <CSSTransition

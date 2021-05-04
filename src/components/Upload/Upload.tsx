@@ -1,6 +1,5 @@
 import React, {FC, useRef, ChangeEvent, useState} from "react"
 import axios from "axios"
-import Button from "../Button/Button"
 import  UploadList from './UploadList';
 import Dragger from './Dragger';
 

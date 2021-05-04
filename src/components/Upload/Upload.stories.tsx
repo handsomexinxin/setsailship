@@ -1,15 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 
 import Upload, {UploadFile} from './Upload';
-const checkFileSize = (file: File) => {
-  if(Math.round(file.size / 1024) > 50) {
-    alert("文件过大")
-    return false;
-  }
-  return true;
-}
+// const checkFileSize = (file: File) => {
+//   if(Math.round(file.size / 1024) > 50) {
+//     alert("文件过大")
+//     return false;
+//   }
+//   return true;
+// }
 const filePromise = (file: File) => {
   console.log("filePromise", file);
   
@@ -23,18 +22,18 @@ const defaultFileList: UploadFile[] = [
 ]
 
 export const UploadComponent = () => {
-  const [ show, setShow] = useState(true)
+  // const [ show, setShow] = useState(true)
   return (
     <div>
       <h5>上传组件</h5>
       <Upload
       defaultFileList={defaultFileList}
         action="https://run.mocky.io/v3/85f48aca-decd-40df-b6f9-23c5698d1897"
-        // onProgress={() => {console.log("onProgress")}}
-        // onSuccess={() => {console.log("onSuccess")}}
-        // onError={() => {console.log("onError")}}
-        // onChange={() => {console.log("onChange")}}
-        // beforeUpload={filePromise}
+        onProgress={() => {console.log("onProgress")}}
+        onSuccess={() => {console.log("onSuccess")}}
+        onError={() => {console.log("onError")}}
+        onChange={() => {console.log("onChange")}}
+        beforeUpload={filePromise}
         data={{"key": "value"}}
         name="fileNameSet"
         headers={{'X-Powered-By': "setsail"}}
@@ -48,5 +47,5 @@ export const UploadComponent = () => {
   )
 }
 
-storiesOf('上传 组件', module)
+storiesOf('Upload 组件', module)
   .add('Upload', UploadComponent)

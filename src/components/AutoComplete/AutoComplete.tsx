@@ -71,7 +71,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
       setShowDropdown(false)
     }
     setHighlightIndex(-1)
-  }, [debounceValue])
+  }, [debounceValue, fetchSuggestions])
 
 const highlight = (index: number) => {
   if(index < 0) index = 0

@@ -1,25 +1,25 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
-import AutoComplete, {DataSourceType} from "./AutoComplete"
+import AutoComplete from "./AutoComplete"
 import { action } from '@storybook/addon-actions';
 
-interface LakerPlayerProps {
-  value: string,
-  number: number
-}
+// interface LakerPlayerProps {
+//   value: string,
+//   number: number
+// }
 const SimpleComplete = () => {
-  const lakers = ["bradley", "pope", "caruso", "cook", "cousins", "james", "AD", "green", "howard", "kuzma", "McGee", "rando"]
-  const lakersWithNumber = [
-    {value: "bradley", number: 11},
-    {value: "pope", number: 9},
-    {value: "caruso", number: 1},
-    {value: "cook", number: 2},
-    {value: "cousins", number: 3},
-    {value: "james", number: 5},
-    {value: "green", number: 13},
-    {value: "howard", number: 29},
+  // const lakers = ["bradley", "pope", "caruso", "cook", "cousins", "james", "AD", "green", "howard", "kuzma", "McGee", "rando"]
+  // const lakersWithNumber = [
+  //   {value: "bradley", number: 11},
+  //   {value: "pope", number: 9},
+  //   {value: "caruso", number: 1},
+  //   {value: "cook", number: 2},
+  //   {value: "cousins", number: 3},
+  //   {value: "james", number: 5},
+  //   {value: "green", number: 13},
+  //   {value: "howard", number: 29},
 
-  ]
+  // ]
   // const handleFetch = (query: string) => {
   //   return lakers.filter(name => name.includes(query)).map(name => ({value: name}))
   // }

@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Icon from "../Icon/Icon";
 /**
@@ -41,22 +41,22 @@ export var Input = function (props) {
         _a['input-group-append'] = !!append,
         _a['input-group-prepend'] = !!prepend,
         _a));
-    var fixControlledValue = function (val) {
-        if (typeof val === 'undefined' || typeof val === null) {
-            return "";
-        }
-        return val;
-    };
-    useEffect(function () {
-        if ('value' in props) {
-            if (props.defaultValue) {
-                // delete props.defaultValue
-            }
-            // props.value = fixControlledValue(props.value)
-        }
-        return function () {
-        };
-    }, []);
+    // const fixControlledValue = (val: any) => {
+    //   if(typeof val === 'undefined' || typeof val === null) {
+    //     return ""
+    //   }
+    //   return val
+    // }
+    // useEffect(() => {
+    //   if('value' in props) {
+    //     if(props.defaultValue) {
+    //       delete props.defaultValue
+    //     }
+    //     props.value = fixControlledValue(props.value)
+    //   }
+    //   return () => {
+    //   }
+    // }, [])
     return (React.createElement("div", { className: classes, style: style },
         prepend && React.createElement("div", { className: 'setsail-input-group-prepend' }, prepend),
         icon && React.createElement("div", { className: 'icon-wrapper' },

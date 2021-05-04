@@ -31,13 +31,14 @@ var Menu = function (props) {
         return React.Children.map(children, function (child, index) {
             var childElement = child;
             var displayName = childElement.type.displayName;
-            // if( displayName === "menuItem" || displayName === "subMenu") {
-            return React.cloneElement(childElement, {
-                index: index.toString()
-            });
-            // }else {
-            //   console.error("error: Menu has a child which is not a MenuItem Component");
-            // }
+            if (displayName === "menuItem" || displayName === "subMenu") {
+                return React.cloneElement(childElement, {
+                    index: index.toString()
+                });
+            }
+            else {
+                console.error("error: Menu has a child which is not a MenuItem Component");
+            }
         });
     };
     return (React.createElement("ul", { className: classes, style: styles, "data-testid": "test-menu" },

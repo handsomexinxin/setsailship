@@ -51,13 +51,13 @@ export const SubMenu: React.FC<SubMenuProps> = (props) => {
     })
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>
-      // if (childElement.type.displayName === "menuItem") {
+      if (childElement.type.displayName === "menuItem") {
         return React.cloneElement(childElement, {
           index: `${index}-${i}`
         })
-      // } else {
-      //   console.error("error: Menu has a child which is not a MenuItem Component");
-      // }
+      } else {
+        console.error("error: Menu has a child which is not a MenuItem Component");
+      }
     })
     return (
       // <CSSTransition

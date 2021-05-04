@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, InputHTMLAttributes,ChangeEvent , useEffect} from 'react'
+import React, { FC, ReactElement, InputHTMLAttributes,ChangeEvent } from 'react'
 import classNames from 'classnames';
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import Icon from "../Icon/Icon"
@@ -42,22 +42,22 @@ export const Input: FC<InputProps> = (props) => {
     'input-group-append': !!append,
     'input-group-prepend': !!prepend
   })
-  const fixControlledValue = (val: any) => {
-    if(typeof val === 'undefined' || typeof val === null) {
-      return ""
-    }
-    return val
-  }
-  useEffect(() => {
-    if('value' in props) {
-      if(props.defaultValue) {
-        // delete props.defaultValue
-      }
-      // props.value = fixControlledValue(props.value)
-    }
-    return () => {
-    }
-  }, [])
+  // const fixControlledValue = (val: any) => {
+  //   if(typeof val === 'undefined' || typeof val === null) {
+  //     return ""
+  //   }
+  //   return val
+  // }
+  // useEffect(() => {
+  //   if('value' in props) {
+  //     if(props.defaultValue) {
+  //       delete props.defaultValue
+  //     }
+  //     props.value = fixControlledValue(props.value)
+  //   }
+  //   return () => {
+  //   }
+  // }, [])
   return (
     <div className={classes} style={style}>
       {prepend && <div className='setsail-input-group-prepend'>{prepend}</div>}
