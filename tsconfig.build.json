@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "build",//目标文件夹
+    "outDir": "dist",//目标文件夹
     "module": "ESNext",//模块化方案
     "target": "ES5",//转换为es5
     "declaration": true,//为每一个ts文件生成d.ts生命文件

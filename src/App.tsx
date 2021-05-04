@@ -9,6 +9,10 @@ import { useState } from 'react';
 import Transition from "./components/Transition/Transition"
 import Input from "./components/Input/Inipt"
 import Upload from "./components/Upload/Upload"
+import {library} from "@fortawesome/fontawesome-svg-core"
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas)
 
 function App() {
   const [show, setShow] = useState(true)
