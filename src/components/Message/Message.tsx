@@ -62,5 +62,12 @@ const createMessage = () => {
 		);
 	};
 };
+/**
+ * message 全局轻提示
+ * ~~~js
+ * // 这样引用
+ * import { message } from 'setsailship'
+ * ~~~
+ */
 export const message = createMessage()
 export default createMessage();

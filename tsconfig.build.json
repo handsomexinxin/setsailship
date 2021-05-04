@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "build",//目标文件夹
+    "module": "ESNext",//模块化方案
+    "target": "ES5",//转换为es5
+    "declaration": true,//为每一个ts文件生成d.ts生命文件
+    "jsx": "react",
+    "moduleResolution": "Node",//文件寻找方式
+    "allowSyntheticDefaultImports": true,//不开启此项则引用默认需要 imprt * as REact form "react"
+  },
+  "include": [ // 编译包含文件
+    "src"
+  ],
+  "exclude": [ // 去除编译文件
+    "src/**/*.test.ts",
+    "src/**/*.stories.tsx"
+  ]
+}

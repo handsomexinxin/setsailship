@@ -48,7 +48,13 @@ export interface UploadProps {
   /**是否开启拖动上传 */
   drag?: boolean
 }
-
+/**
+ * Upload 文件上传
+ * ~~~js
+ * // 这样引用
+ * import { Upload } from 'setsailship'
+ * ~~~
+ */
 export const Upload: FC<UploadProps> = (props) => {
   const {
     action,

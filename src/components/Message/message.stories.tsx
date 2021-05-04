@@ -25,5 +25,5 @@ export const MessageComponent = () => (
   </div>
 )
 
-storiesOf('Message 组件', module)
-  .add('Message', MessageComponent)
+storiesOf('message 组件', module)
+  .add('message', MessageComponent)

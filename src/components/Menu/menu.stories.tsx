@@ -1,31 +1,32 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import Menu from './Menu'
-import MenuItem from './MenuItem'
-import SubMenu from './SubMenu'
+// import Menu from './Menu'
+// import MenuItem from './MenuItem'
+// import SubMenu from './SubMenu'
+import Menu from './index'
 
 export const defaultMenu = () => (
   <div>
     <h5>横向Menu组件</h5>
     <Menu defaultIndex={"0"} >
-      <MenuItem >
+      <Menu.Item >
         cool link
-          </MenuItem>
-      <MenuItem disabled >
+          </Menu.Item>
+      <Menu.Item disabled >
         cool link 2
-          </MenuItem>
-      <SubMenu title="dropdown" >
-        <MenuItem >
+          </Menu.Item>
+      <Menu.SubMenu title="dropdown" >
+        <Menu.Item >
           dropdown 1
-          </MenuItem>
-        <MenuItem >
+          </Menu.Item>
+        <Menu.Item >
           dropdown 2
-          </MenuItem>
-      </SubMenu>
-      <MenuItem >
+          </Menu.Item>
+      </Menu.SubMenu>
+      <Menu.Item >
         cool link 3
-          </MenuItem>
+          </Menu.Item>
     </Menu>
   </div>
 )
@@ -33,23 +34,23 @@ export const verticalMenu = () => (
   <div>
     <h5>竖向Menu组件</h5>
     <Menu defaultIndex={"0"} onSelect={(index) => { console.log(index) }} mode="vertical" defaultOpenSunMenus={["2"]} >
-      <MenuItem >
+      <Menu.Item >
         cool link
-          </MenuItem>
-      <MenuItem disabled >
+          </Menu.Item>
+      <Menu.Item disabled >
         cool link 2
-          </MenuItem>
-      <SubMenu title="dropdown" >
-        <MenuItem >
+          </Menu.Item>
+      <Menu.SubMenu title="dropdown" >
+        <Menu.Item >
           dropdown 1
-          </MenuItem>
-        <MenuItem >
+          </Menu.Item>
+        <Menu.Item >
           dropdown 2
-          </MenuItem>
-      </SubMenu>
-      <MenuItem >
+          </Menu.Item>
+      </Menu.SubMenu>
+      <Menu.Item >
         cool link 3
-          </MenuItem>
+          </Menu.Item>
     </Menu>
   </div>
 )
