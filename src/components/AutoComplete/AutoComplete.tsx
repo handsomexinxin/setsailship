@@ -12,8 +12,11 @@ interface DataSourceObject {
 export type DataSourceType<T = {}> = T & DataSourceObject
 
 export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
+  /** 展示数据 */
   fetchSuggestions: (str: string) => DataSourceType[] | Promise<DataSourceType[]>;
+  /**选择之后的回调 */
   onSelect?: (item: DataSourceType) => void;
+  /** 渲染函数 */
   renderOption?: (item: DataSourceType) => ReactElement
 }
 /**

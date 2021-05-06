@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 import Upload, {UploadFile} from './Upload';
 // const checkFileSize = (file: File) => {
@@ -12,7 +13,7 @@ import Upload, {UploadFile} from './Upload';
 const filePromise = (file: File) => {
   console.log("filePromise", file);
   
-  const newFile = new File([file], "new_name.zip", {type: file.type})
+  const newFile = new File([file], `${file.name}new_name.zip`, {type: file.type})
   return Promise.resolve(newFile)
 }
 const defaultFileList: UploadFile[] = [
@@ -28,11 +29,11 @@ export const UploadComponent = () => {
       <h5>上传组件</h5>
       <Upload
       defaultFileList={defaultFileList}
-        action="https://run.mocky.io/v3/85f48aca-decd-40df-b6f9-23c5698d1897"
-        onProgress={() => {console.log("onProgress")}}
-        onSuccess={() => {console.log("onSuccess")}}
-        onError={() => {console.log("onError")}}
-        onChange={() => {console.log("onChange")}}
+        action="https://run.mocky.io/v3/64220d5a-080d-49c0-a704-679a5a63f7ee"
+        onProgress={action("onProgress")}
+        onSuccess={action("onSuccess")}
+        onError={action("onError")}
+        onChange={action("onChange")}
         beforeUpload={filePromise}
         data={{"key": "value"}}
         name="fileNameSet"

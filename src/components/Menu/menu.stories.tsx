@@ -1,5 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+
 // import Menu from './Menu'
 // import MenuItem from './MenuItem'
 // import SubMenu from './SubMenu'
@@ -8,7 +10,7 @@ import Menu from './index'
 export const defaultMenu = () => (
   <div>
     <h5>横向Menu组件</h5>
-    <Menu defaultIndex={"0"} >
+    <Menu defaultIndex={"0"} onSelect={action('onSelect')} >
       <Menu.Item >
         cool link
           </Menu.Item>
@@ -32,7 +34,7 @@ export const defaultMenu = () => (
 export const verticalMenu = () => (
   <div>
     <h5>竖向Menu组件</h5>
-    <Menu defaultIndex={"0"} onSelect={(index) => { console.log(index) }} mode="vertical" defaultOpenSunMenus={["2"]} >
+    <Menu defaultIndex={"0"} onSelect={action('onSelect')} mode="vertical" defaultOpenSunMenus={["2"]} >
       <Menu.Item >
         cool link
           </Menu.Item>
